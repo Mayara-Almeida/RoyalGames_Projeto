@@ -1,0 +1,43 @@
+#header{
+    height: 15vh;
+    background: linear-gradient(180deg, var(--cinza-escuro) 0%, rgba(34, 28, 45, 0) 100%);
+
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 15%;
+}
+
+#nav_menu{
+    display: flex;
+    gap: 30%;
+    align-items: center;
+}
+
+#nav_menu a{
+   font-size: 30px;
+   font-weight: 400;
+   color: white;
+   text-decoration: none;
+}
+
+.botao_login{
+    background: none;
+    border: 2px, solid, var(--rosa-destaque);
+    border-radius: 6px;
+    padding: 10px 20px;
+
+    font-family: var(--fonte-texto);
+    font-weight: 400;
+    font-size: 30px;
+
+    color: white;
+}

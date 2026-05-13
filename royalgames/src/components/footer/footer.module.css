@@ -1,0 +1,26 @@
+#footer{
+    height: 28vh;
+    background: linear-gradient(0deg, var(--cinza-escuro) 0%, rgba(34, 28, 45, 0) 100%);
+
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 22%;
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    gap: 8%;
+    color: white;
+    font-size: 28px;
+}

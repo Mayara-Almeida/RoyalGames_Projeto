@@ -2,5 +2,79 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-image: linear-gradient(to right, var(--roxo-destaque), #00f2fe);
+    background: linear-gradient(270deg, var(--cinza-escuro) 44.71%, #282047 100%); /* 270deg -> direção - direita para esquerda*/
+                                                                            /* 44.71% -> porcentagem que essa primeira cor permanece no degradê antes de começar a transição */
+}
+
+.lado_esquerdo{
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.imagem_mulher{
+    width: 60%;
+}
+
+.lado_direito{
+    display: flex;
+    align-items: center;
+}
+
+#campo_login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    height: 85%;
+    gap: 15%;
+    
+    border: 1px, solid, #D6D2E640;
+    border-radius: 6px;
+    box-shadow: 4px 4px 15px #D6D2E620;
+    backdrop-filter: blur(10px);
+}
+
+.logo{
+    width: 58%;
+}
+
+#formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+}
+
+.campo_form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.campo_form label{
+    font-family: var(--fonte-texto); /* ARRUMAR */
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--cinza-claro);
+}
+
+.campo_form input{
+    height: 4.5vh;
+    border-radius: 6px;
+    background: #D6D2E620; /* o número 20 no final é a opacidade da cor*/
+    border: 1px solid #ffffff65;
+}
+
+.botao{
+    width: 30%;
+    padding: 1%;
+
+    background: none;
+    border: 3px, solid, var(--rosa-destaque);
+    border-radius: 6px;
+
+    color: var(--cinza-claro);
+    font-family: var(--fonte-texto);
+    font-weight: 600;
+    font-size: 30px;
 }

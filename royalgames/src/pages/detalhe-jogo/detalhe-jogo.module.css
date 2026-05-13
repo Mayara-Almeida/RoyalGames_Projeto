@@ -1,0 +1,67 @@
+
+
+#main{
+    min-height: 100vh;
+    
+    background: radial-gradient(circle, #2e2553 44.71%, #2c233b 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    gap: 50px;
+
+    border: 1px, solid, #D6D2E640;
+    border-radius: 6px;
+    box-shadow: 4px 4px 15px #D6D2E620;
+    backdrop-filter: blur(10px);
+}
+
+#topo h2{
+    color: var(--cinza-claro);
+
+    font-family: var(--fonte-titulo);
+    font-size: 36px;
+    font-weight: 600;
+}
+
+#jogo{
+    display: flex;
+
+    width: 90%;
+    gap: 3%;
+}
+
+#infos_jogo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nome_jogo{
+    color: white;
+    font-family: var(--fonte-titulo);
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.desc_jogo{
+    color: white;
+    font-family: var(--fonte-texto);
+    font-size: 24px;
+    font-weight: 500;
+}

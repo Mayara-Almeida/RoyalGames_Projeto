@@ -3,8 +3,8 @@
     padding: 0; 
     box-sizing: border-box; 
 
+    font-family: var(--fonte-titulo);
     font-family: var(--fonte-texto);
-    font-family: var(--font-padrao);
 }
 
 :root{
@@ -18,4 +18,8 @@
 
 .layout_guide{
     width: 80%;
+}
+
+#infos_jogo{
+    display: flex;
 }

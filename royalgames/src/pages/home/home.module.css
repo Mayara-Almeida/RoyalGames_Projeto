@@ -1,0 +1,61 @@
+#main{
+    background-color: var(--fundo-escuro);
+}
+
+#banner{
+    background: linear-gradient(180deg, rgba(82, 59, 255, 0) 15%, rgba(34, 28, 45, 0.5) 81.73%, rgba(82, 59, 255, 0));
+
+    display: flex;  
+    justify-content: center;
+}
+
+.container_banner{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.textos_esquerda{
+    color: var(--cinza-claro);
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.imagem{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.titulo_banner{
+    font-family: var(--fonte-titulo);
+
+    font-size: 38px;
+}
+
+.texto{
+    font-family: var(--fonte-texto);
+
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* -----------------------------SEÇÃO CATÁLOGO--------------------------------- */
+#catalogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulo_catalogo{
+    font-family: var(--fonte-titulo);
+    color: var(--cinza-claro);
+    font-size: 38px;
+}
+
+.linha{
+    background-color: var(--rosa-destaque);
+    width: 18%;
+}

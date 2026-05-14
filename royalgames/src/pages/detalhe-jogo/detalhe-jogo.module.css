@@ -23,6 +23,7 @@
     align-items: center;
 
     width: 100%;
+    height: 90vh; /* !arrumar isso, pois a div não respeita os gaps */
     gap: 50px;
 
     border: 1px, solid, #D6D2E640;
@@ -61,6 +62,42 @@
 
 .desc_jogo{
     color: white;
+    font-family: var(--fonte-texto);
+    font-size: 24px;
+    font-weight: 500;
+}
+#infos_compra{
+    display: flex;  
+    gap: 40%;
+    width: 100%;
+    justify-content: center;
+
+    color: white;
+
+}
+
+.campo_titulo{
+    font-family: var(--fonte-titulo);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.infos_esquerda{
+    display: flex;
+    flex-direction: column;
+    gap: 50%;
+}
+
+.infos_direita{
+    display: flex;
+    flex-direction: column;
+    gap: 50%;
+}
+
+.campo{
+    display: flex;
+    gap: 24px;
+
     font-family: var(--fonte-texto);
     font-size: 24px;
     font-weight: 500;

@@ -1,0 +1,12 @@
+    .botao{
+        background-color: transparent;
+        border: 2px solid var(--rosa-destaque);
+
+        font-family: var(--fonte-texto);
+        color: var(--cinza-claro);
+        font-size: 25px;
+        font-weight: 500;
+
+        border-radius: 6px;
+        padding: 1%;
+    }

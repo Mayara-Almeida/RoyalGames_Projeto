@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./header.module.css"
+import Botao from "../botao/botao";
 
 const Header = () => {
     return (
@@ -10,7 +11,7 @@ const Header = () => {
                     <nav id={styles.nav_menu}>
                         <a href="" className={styles.catalogo_nav}>Catálogo</a>
                         <Link href="/login">
-                            <button className={styles.botao_login}>Login</button>
+                            <Botao>Login</Botao>
                         </Link>
                     </nav>
                 </div>

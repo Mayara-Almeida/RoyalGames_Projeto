@@ -2,16 +2,21 @@ import Link from "next/link";
 import styles from "./header.module.css"
 import Botao from "../botao/botao";
 
-const Header = () => {
+type PropsHeader = {
+    textoLink: string;
+    textoBotao: string;
+}
+
+const Header = ({textoLink, textoBotao}: PropsHeader) => {
     return (
         <>
             <header id={styles.header}>
                 <div className={`${styles.container} layout_guide`}>
                     <img src="./imgs/logo.svg" alt="Logo do Royal Games em tom rosa destaque." className={styles.logo} />
-                    <nav id={styles.nav_menu}>
-                        <a href="" className={styles.catalogo_nav}>Catálogo</a>
+                    <nav className={styles.nav_menu}>
+                        <a href="" className={styles.catalogo_nav}>{textoLink}</a>
                         <Link href="/login">
-                            <Botao>Login</Botao>
+                            <Botao className={styles.botao_header}>{textoBotao}</Botao>
                         </Link>
                     </nav>
                 </div>

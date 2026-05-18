@@ -13,6 +13,8 @@
     --rosa-destaque: #FF004C;
     --cinza-escuro: #221C2D;
     --fundo-escuro: #0B0616;
+
+    --fundo-gradiente: linear-gradient(270deg, #261f33 15%, #2b224f 100%);
 }
 
 .layout_guide{

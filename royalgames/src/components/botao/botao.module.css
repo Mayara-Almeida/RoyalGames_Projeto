@@ -3,9 +3,9 @@
         border: 2px solid var(--rosa-destaque);
 
         font-family: var(--fonte-texto);
-        color: var(--cinza-claro);
+        color: #FFFFFF;
         font-size: 25px;
-        font-weight: 500;
+        font-weight: 400;
 
         border-radius: 6px;
         padding: 8px;    

@@ -1,5 +1,5 @@
 #header{
-    height: 15vh;
+    height: 18vh;
     background: linear-gradient(180deg, var(--cinza-escuro) 0%, rgba(34, 28, 45, 0) 100%);
 
     display: flex;
@@ -13,31 +13,26 @@
 }
 
 .logo{
-    width: 15%;
+    width: 18%;
 }
 
-#nav_menu{
+.nav_menu{
     display: flex;
-    gap: 30%;
+    gap: 50px;
     align-items: center;
 }
 
-#nav_menu a{
-   font-size: 30px;
+.nav_menu a{
+   font-size: 25px;
    font-weight: 400;
    color: white;
    text-decoration: none;
 }
 
-.botao_login{
-    background: none;
-    border: 2px, solid, var(--rosa-destaque);
-    border-radius: 6px;
-    padding: 10px 20px;
+.nav_menu a:hover{
+    color: var(--rosa-destaque);
+}
 
-    font-family: var(--fonte-texto);
-    font-weight: 400;
-    font-size: 30px;
-
-    color: white;
+.botao_header{
+    width: 150px;
 }

@@ -1,80 +1,59 @@
 #main{
     min-height: 100vh;
+    background: linear-gradient(270deg, var(--cinza-escuro) 44.71%, #282047 100%); /* 270deg -> direção - direita para esquerda*/
+                                                            /* 44.71% -> porcentagem que essa primeira cor permanece no degradê antes de começar a transição*/
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background: linear-gradient(270deg, var(--cinza-escuro) 44.71%, #282047 100%); /* 270deg -> direção - direita para esquerda*/
-                                                                            /* 44.71% -> porcentagem que essa primeira cor permanece no degradê antes de começar a transição */
-}
-
-.lado_esquerdo{
-    display: flex;
-    align-items: end;
-    justify-content: center;
+    align-items: center; /* Para alinhar o card de login ao meio */
 }
 
 .imagem_mulher{
-    width: 60%;
-}
-
-.lado_direito{
     display: flex;
-    align-items: center;
+    justify-content: center;
+    align-items: end; /* Manda a imagem para o final da página verticalmente */
 }
 
-#campo_login{
+.imagem_mulher img{
+    width: 63%;
+}
+
+.form_login{
+    width: 75%;
+    height: 90%;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70%;
-    height: 85%;
-    gap: 15%;
+    align-items: center;
     
-    border: 1px, solid, #D6D2E640;
-    border-radius: 6px;
-    box-shadow: 4px 4px 15px #D6D2E620;
-    backdrop-filter: blur(10px);
+    gap: 10%;
+}   
+
+.form_login img{
+    width: 60%;
 }
 
-.logo{
-    width: 58%;
-}
-
-#formulario{
+.formulario{
     display: flex;
     flex-direction: column;
-    gap: 20%;
+    width: 80%;
+    height: 50%;
+    gap: 10%;
 }
 
 .campo_form{
     display: flex;
     flex-direction: column;
-    width: 80%;
-}
+    gap: 5px;
 
-.campo_form label{
-    font-family: var(--fonte-texto); /* ARRUMAR */
-    font-weight: 600;
-    font-size: 30px;
-    color: var(--cinza-claro);
-}
-
-.campo_form input{
-    height: 4.5vh;
-    border-radius: 6px;
-    background: #D6D2E620; /* o número 20 no final é a opacidade da cor*/
-    border: 1px solid #ffffff65;
-}
-
-.botao{
-    width: 30%;
-    padding: 1%;
-
-    background: none;
-    border: 3px, solid, var(--rosa-destaque);
-    border-radius: 6px;
-
-    color: var(--cinza-claro);
     font-family: var(--fonte-texto);
-    font-weight: 600;
-    font-size: 30px;
+    color: var(--cinza-claro);
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.botao_entrar{
+    width: 45%;
+    margin-top: 6%;
+    align-self: center; /* align-self: -> centraliza apenas esse item específico*/
 }

@@ -8,5 +8,11 @@
         font-weight: 500;
 
         border-radius: 6px;
-        padding: 1%;
+        padding: 6px;    
+    }
+
+    .botao:hover{
+        border: none;
+        cursor: pointer;
+        color: var(--rosa-destaque);
     }

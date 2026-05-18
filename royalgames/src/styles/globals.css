@@ -33,7 +33,7 @@
 } 
 
 .efeito_vidro_input{
-    height: 5.9vh;
+    height: 45px;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 6px;
 
@@ -47,5 +47,5 @@
     /* Texto */
     color: white;
     font-size: 16px;
-    padding-left: 6px;
+    padding-left: 10px;
 }

@@ -10,6 +10,7 @@
 .imagem_mulher{
     display: flex;
     justify-content: center;
+    align-self: self-end;
     align-items: end; /* Manda a imagem para o final da página verticalmente */
 }
 
@@ -56,4 +57,27 @@
     width: 45%;
     margin-top: 6%;
     align-self: center; /* align-self: -> centraliza apenas esse item específico*/
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width: 1023px){
+    .form_login{
+        width: 85%;
+        height: 60%;
+    }
+}
+
+@media(max-width: 768px){
+    #main{
+        grid-template-columns: 1fr;
+    }
+
+    .imagem_mulher{
+        display: none;
+    }
+
+    .form_login{
+        justify-self: center;
+    }
 }

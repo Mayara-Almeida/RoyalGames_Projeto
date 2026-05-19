@@ -20,7 +20,7 @@ async function autenticar(e: React.FormEvent<HTMLFormElement>){
             await login(email, senha);
             notificacao("Login bem sucedido!");
             setTimeout(() => {
-                router.push("/home")
+                router.push("/jogo")
             }, 800);
         } catch (error: any) {
             erro(error.message);

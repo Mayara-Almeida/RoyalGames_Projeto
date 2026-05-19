@@ -6,7 +6,7 @@ const DetalheJogo = () => {
     return (
         <>
             <main id={styles.main}>
-                <Header />
+                <Header textoBotao="" textoLink=""/>
                 <div className={`${styles.container} layout_guide`}>
                     <div id={styles.card}>
                         <div id={styles.topo}>

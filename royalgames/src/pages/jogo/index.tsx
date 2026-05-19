@@ -4,21 +4,16 @@ import Footer from "@/components/footer/footer";
 import ListaProduto from "@/components/lista-produto/lista-produto";
 import Botao from "@/components/botao/botao";
 
-interface Genero {
-    generoId: number,
-    nome: string
-}
-
 const Jogo = () => {
     return (
         <>
             <div className={styles.pagina}>
                 <Header textoLink="Catálogo" textoBotao="Deslogar"/>
-                <main>
+                <main className={styles.main}>
                     <section className={styles.cadastro}>
                         <div className={`${styles.container_cadastro} layout_guide efeito_vidro_card`}>
                             <div className={styles.titulo}>
-                                <h1>Cadatsrar novo jogo</h1>
+                                <h1>Cadastrar novo jogo</h1>
                                 <hr />
                             </div>
                             <form className={styles.formulario} action="" >
@@ -63,9 +58,8 @@ const Jogo = () => {
                                     <label htmlFor="descricao">Descrição</label>
                                     <textarea className="efeito_vidro_input" name="descricao" required />
                                 </div>
-
-                                <Botao>Cadastrar</Botao>
                             </form>
+                                <Botao className={styles.botao_cadastro}>Cadastrar</Botao>
                         </div>
                     </section>
                     <ListaProduto />

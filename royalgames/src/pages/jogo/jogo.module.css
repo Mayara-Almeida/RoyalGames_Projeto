@@ -1,5 +1,100 @@
 .pagina{
     min-height: 100vh;
-
     background: var(--fundo-gradiente);
+
+    display: grid;
+    gap: 45px;
+}
+
+.main{
+    display: grid;
+    gap: 50px;
+}
+
+.cadastro{
+    display: flex;
+    justify-content: center;
+}
+
+.container_cadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 3% 2%;
+}
+
+.titulo h1{
+    font-family: var(--fonte-titulo);
+    font-size: 35px;
+    font-weight: 600;
+    color: var(--cinza-claro);
+}
+
+.titulo hr{
+   border: none; /* Remover borda padrão */
+
+   height: 1px;
+   background: var(--rosa-destaque);
+   border-radius: 2px;
+   margin-top: 1.5%;
+}
+
+.formulario{
+    display: grid;
+    grid-template-columns: 1.9fr 1.1fr;
+    justify-self: center;
+    width: 90%;
+    gap: 30px;
+}
+
+.form_esquerda{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.campos_meio{
+    display: grid;
+    grid-template-columns: 170px 170px 250px;
+
+    gap: 25px;
+}
+
+.campos_baixo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.form_direita textarea{
+    height: 100%;
+}
+
+.campo_form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+
+    font-family: var(--fonte-texto);
+    color: var(--cinza-claro);
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.campo_form select{
+    cursor: pointer;
+}
+
+.campo_form input[type="file"]{ /* Diminuir o tamanho do texto dentro do input de imagem */
+    font-size: 12px;
+    line-height: 40px; /* Define a altura da linha do texto, ajudando a centralizar e alinhar */
+
+    cursor: pointer;
+}
+
+.botao_cadastro{
+    width: 20%;
 }

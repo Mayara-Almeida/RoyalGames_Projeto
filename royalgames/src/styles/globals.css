@@ -23,7 +23,7 @@
 
 .efeito_vidro_card {
     border: 1px solid rgba(255, 255, 255, 0.3); /* Cor branca com transparência(30% visível) */
-    border-radius: 6px;
+    border-radius: 10px;
     
     background: rgba(255, 255, 255, 0); /* Fundo branco totalmente transparente */
 

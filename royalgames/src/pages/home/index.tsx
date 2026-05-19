@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <>
             <main id={styles.main}>
-                <Header />
+                <Header textoBotao="" textoLink=""/>
 
                 { /* -----------------------------SEÇÃO BANNER--------------------------------- */}
                 <section id={styles.banner}>

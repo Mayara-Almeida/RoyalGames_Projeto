@@ -3,8 +3,94 @@ import styles from "./jogo.module.css"
 import Footer from "@/components/footer/footer";
 import ListaProduto from "@/components/lista-produto/lista-produto";
 import Botao from "@/components/botao/botao";
+import { use, useEffect, useState } from "react";
+import { listarGenero } from "../api/generoService";
+import { listarPlataforma } from "../api/plataformaService";
+import { listarClassificacaoIndicativa } from "../api/classificacaoIndicativa";
+import { cadastrarJogo } from "../api/jogoService";
+import { erro, notificacao } from "@/utils/toast";
+
+interface Genero{
+    generoID: number,
+    nome: string
+}
+
+interface Plataforma{
+    plataformaID: number,
+    nome: string
+}
+
+interface ClassificacaoIndicativa{
+    classificacaoIndicativaID: number,
+    classificacao: string
+}
 
 const Jogo = () => {
+    
+    // Listagens que vem da api
+    const[generos, setGeneros] = useState<Genero[]>([]);
+    const[plataformas, setPlataformas] = useState<Plataforma[]>([]);
+    const[classificacoes, setClassificacoes] = useState<ClassificacaoIndicativa[]>([]);
+
+
+    async function listarGeneroEmJogo() {
+        const listaGeneros = await listarGenero();
+
+        setGeneros(listaGeneros.data); // Guarda os dados retornados pela API
+        console.log(listaGeneros.data);
+    }
+
+    async function listarPlataformaEmJogo() {
+        const listaPlataformas = await listarPlataforma();
+
+        setPlataformas(listaPlataformas.data);
+        console.log(listaPlataformas.data);
+    }
+
+    async function listarClassificacaoIndicativaEmJogo() {
+        const listaClassificacoes = await listarClassificacaoIndicativa();
+
+        setClassificacoes(listaClassificacoes.data);
+        console.log(listaClassificacoes.data);
+    }
+
+    // Cadastro de jogo
+    const[nome, setNome] = useState<string>("");
+    const[preco, setPreco] = useState<string>("");
+    const[descricao, setDescricao] = useState<string>("");
+    const[imagem, setImagem] = useState<File | null>(null);
+    const[generosSelecionados, setGenerosSelecionados] = useState<number[]>([]);
+    const[plataformasSelecionadas, setPlataformasSelecionadas] = useState<number[]>([]);
+    const[classificacaoSelecionada, setClassificacaoSelecionada] = useState<number>();
+
+    async function salvarJogo(e: React.FormEvent<HTMLFormElement>){
+        e.preventDefault();
+        try{
+            const dadosJogo = { // O nome desses valores tem que estar igual ao que passamos na inteface criada na hora de cadastrar(nesse caso a interface "JogoFormulario")
+                nome,
+                preco, 
+                descricao,
+                imagem,
+                generosIds: generosSelecionados,
+                plataformasIds: plataformasSelecionadas,
+                classificacaoIndicativaId: classificacaoSelecionada
+            }
+
+            await cadastrarJogo(dadosJogo);
+            notificacao("Produto cadastrado!");
+        }
+        catch (error: any){
+            erro(error.message);
+        }
+    }
+
+    useEffect(() => {
+        listarGeneroEmJogo();
+        listarPlataformaEmJogo();
+        listarClassificacaoIndicativaEmJogo();
+    }, [])
+
+
     return (
         <>
             <div className={styles.pagina}>
@@ -33,8 +119,13 @@ const Jogo = () => {
                                         </div>
                                         <div className={styles.campo_form}>
                                             <label htmlFor="genero">Gênero</label>
-                                            <select className="efeito_vidro_input" name="genero" id="" required>
-                                            </select>
+                                            {/* <select className="efeito_vidro_input" 
+                                            multiple
+                                            value={generosSelecionados.map(String)}
+                                            onChange={(e) => setGenerosSelecionados(
+                                                // Array.from(e.target.selectedOptions).map(())
+                                            )}>
+                                            </select> */}
                                         </div>
                                         <div className={styles.campo_form}>
                                             <label htmlFor="classificacao">Classificação Indicativa</label>

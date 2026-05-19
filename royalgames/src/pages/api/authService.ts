@@ -7,6 +7,7 @@ export async function login(email: string, senha: string){
         const token = response.data.token;
 
         secureLocalStorage.setItem("Token", token);
+        // secureLocalStorage.removeItem("Token");
     } 
     catch(error: any){
         throw new Error("E-mail ou senha inválidos")

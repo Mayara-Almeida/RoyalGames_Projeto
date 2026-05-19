@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-toastify";
 import { login } from "../api/authService";
 import Botao from "@/components/botao/botao";
+import { erro, notificacao } from "@/utils/toast";
 
 const Login = () => {
 
@@ -11,8 +12,6 @@ const Login = () => {
     const [senha, setSenha] = useState<string>("");
 
     const router = useRouter(); // Permite navegar entre as páginas
-    const notificacao = (msg: string) => toast.success(msg);
-    const erro = (msg: string) => toast.error(msg);
 
 async function autenticar(e: React.FormEvent<HTMLFormElement>){
     e.preventDefault(); // Impede o comportamento padrão do formulário (recarregar a página) antes da requisição ser finalizada

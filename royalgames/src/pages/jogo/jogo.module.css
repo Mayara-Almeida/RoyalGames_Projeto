@@ -56,9 +56,10 @@
 
 .campos_meio{
     display: grid;
-    grid-template-columns: 170px 170px 250px;
+    width: 100%;
+    grid-template-columns: 28% 28% 36%;
 
-    gap: 25px;
+    gap: 4%;
 }
 
 .campos_baixo{

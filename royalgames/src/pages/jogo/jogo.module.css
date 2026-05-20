@@ -71,6 +71,7 @@
 
 .form_direita textarea{
     height: 100%;
+    padding-top: 8px;
 }
 
 .campo_form{
@@ -81,7 +82,7 @@
 
     font-family: var(--fonte-texto);
     color: var(--cinza-claro);
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 500;
 }
 

@@ -26,7 +26,7 @@ const ListaProduto = () => {
 
                         <div className={styles.filtro}>
                             <select className={`${styles.filtro_select} efeito_vidro_input`} name="generos" id="">
-                                <option value="genero" selected>Gênero</option>
+                                <option value="genero">Gênero</option>
                             </select>
                         </div>
                     </div>

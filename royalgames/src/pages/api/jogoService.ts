@@ -5,7 +5,7 @@ interface JogoFormulario{ // Interface para cadastrar jogo
     preco: string,
     descricao: string,
     imagem: File | null,
-    classificacaoIndicativaId: number,
+    classificacaoIndicativaId: number[], // É um array, pois da api vem mais de um valor para selecionar
     generosIds: number[],
     plataformasIds: number[]
 }

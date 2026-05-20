@@ -5,6 +5,7 @@ type PropsBotao = { // Props -> são a informações/dados que são enviadas par
     children: ReactNode; // Componente vai aceitar conteúdo dentro dele(que pode mudar) e guardar, ex: o texto do botão 
     onClick?: () => void ; // Guardar uma função para o evento de clique, mas pode ser opcional, portanto não retorna nada(void)
     className?: string // O componente botão aceita classes extras, sendo opcional
+    type?: 'button' | 'submit' // Define os tipos de botão permitidos
 }
 
 const Botao = ({children, onClick, className}: PropsBotao) => { // Cria o componente que recebe como parâmetro as props(informações) do PropsBotao e guarda

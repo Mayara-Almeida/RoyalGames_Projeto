@@ -61,33 +61,37 @@ const Jogo = () => {
     const [imagem, setImagem] = useState<File | null>(null);
     const [generosSelecionados, setGenerosSelecionados] = useState<number[]>([]);
     const [plataformasSelecionadas, setPlataformasSelecionadas] = useState<number[]>([]);
-    const [classificacaoSelecionada, setClassificacaoSelecionada] = useState<number>();
+    const [classificacaoSelecionada, setClassificacaoSelecionada] = useState<number[]>([]); /* Apesar de poder selecionar só um, ainda é um array, pq da api vem mais de uma opção */
 
-    // async function salvarJogo(e: React.FormEvent<HTMLFormElement>) {
-    //     e.preventDefault();
-    //     try {
-    //         const dadosJogo = { // O nome desses valores tem que estar igual ao que passamos na inteface criada na hora de cadastrar(nesse caso a interface "JogoFormulario")
-    //             nome,
-    //             preco,
-    //             descricao,
-    //             imagem,
-    //             generosIds: generosSelecionados,
-    //             plataformasIds: plataformasSelecionadas,
-    //             classificacaoIndicativaId: classificacaoSelecionada
-    //         }
+    async function salvarJogo(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        try {
+            const dadosJogo = { // O nome desses valores tem que estar igual ao que passamos na inteface criada na hora de cadastrar(nesse caso a interface "JogoFormulario")
+                nome,
+                preco,
+                descricao,
+                imagem,
+                generosIds: generosSelecionados,
+                plataformasIds: plataformasSelecionadas,
+                classificacaoIndicativaId: classificacaoSelecionada
+            }
 
-    //         await cadastrarJogo(dadosJogo);
-    //         notificacao("Produto cadastrado!");
-    //     }
-    //     catch (error: any) {
-    //         erro(error.message);
-    //     }
-    // }
+            await cadastrarJogo(dadosJogo);
+            notificacao("Produto cadastrado!");
+        }
+        catch (error: any) {
+            erro(error.message);
+        }
+    }
+
+    // Autenticacação
+    const[estaAutenticado, setEstaAutenticado] = useState(false);
 
     useEffect(() => {
         listarGeneroEmJogo();
         listarPlataformaEmJogo();
         listarClassificacaoIndicativaEmJogo();
+        setEstaAutenticado(true);
     }, []) // O array vazio[], diz que o useEffect só vai executar essas ações uma vez, quando a tela for carregada inicialmente,
     //isso impede o loop infinito das informações 
 
@@ -105,20 +109,22 @@ const Jogo = () => {
                                 <h1>Cadastrar novo jogo</h1>
                                 <hr className="linha_titulo" />
                             </div>
-                            <form className={styles.formulario} action="" >
+                            <form className={styles.formulario} action="" onSubmit={salvarJogo}>
 
 
                                 <div className={styles.form_esquerda}>
 
                                     <div className={styles.campo_form}>
                                         <label htmlFor="nome">Nome</label>
-                                        <input className="efeito_vidro_input" type="text" name="nome" required />
+                                        <input className="efeito_vidro_input" type="text"
+                                            value={nome} onChange={(e) => setNome(e.target.value)} />
                                     </div>
 
                                     <div className={styles.campos_meio}>
                                         <div className={styles.campo_form}>
                                             <label htmlFor="valor">Valor</label>
-                                            <input className="efeito_vidro_input" type="text" name="valor" required />
+                                            <input className="efeito_vidro_input" type="text" 
+                                                value={preco} onChange={(e) => setPreco(e.target.value)} />
                                         </div>
                                         <div className={styles.campo_form}>
                                             <label htmlFor="genero">Gênero</label>
@@ -135,7 +141,15 @@ const Jogo = () => {
                                         </div>
                                         <div className={styles.campo_form}>
                                             <label htmlFor="classificacao">Classificação Indicativa</label>
-                                            <select className="efeito_vidro_input" name="classificacao" id=""></select>
+                                            <select className="efeito_vidro_input" 
+                                                value={classificacaoSelecionada.map(String)}
+                                                onChange={(e) => setClassificacaoSelecionada(
+                                                    Array.from(e.target.selectedOptions).map((option) => Number(option.value))
+                                                )}>
+                                                {classificacoes.map((item) => (
+                                                    <option value={item.classificacaoIndicativaID} key={item.classificacaoIndicativaID}>{item.classificacao}</option>
+                                                ))}
+                                            </select>
                                         </div>
                                     </div>
 
@@ -155,17 +169,24 @@ const Jogo = () => {
                                         </div>
                                         <div className={styles.campo_form}>
                                             <label htmlFor="imagem">Imagem</label>
-                                            <input className="efeito_vidro_input" type="file" name="imagem" required />
+                                            <input className="efeito_vidro_input" 
+                                            type="file" 
+                                            onChange={(e) => {
+                                                if(e.target.files && e.target.files[0])
+                                                setImagem(e.target.files[0]);
+                                            }}
+                                            />
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className={`${styles.form_direita} ${styles.campo_form}`}>
                                     <label htmlFor="descricao">Descrição</label>
-                                    <textarea className="efeito_vidro_input" name="descricao" required />
+                                    <textarea className="efeito_vidro_input"
+                                    value={descricao} onChange={(e) => setDescricao(e.target.value)}/>
                                 </div>
+                            <Botao type="submit" className={styles.botao_cadastro}>Cadastrar</Botao>
                             </form>
-                            <Botao className={styles.botao_cadastro}>Cadastrar</Botao>
                         </div>
                     </section>
 

@@ -10,27 +10,27 @@ import { listarClassificacaoIndicativa } from "../api/classificacaoIndicativa";
 import { cadastrarJogo } from "../api/jogoService";
 import { erro, notificacao } from "@/utils/toast";
 
-interface Genero{
+interface Genero {
     generoID: number,
     nome: string
 }
 
-interface Plataforma{
+interface Plataforma {
     plataformaID: number,
     nome: string
 }
 
-interface ClassificacaoIndicativa{
+interface ClassificacaoIndicativa {
     classificacaoIndicativaID: number,
     classificacao: string
 }
 
 const Jogo = () => {
-    
+
     // Listagens que vem da api
-    const[generos, setGeneros] = useState<Genero[]>([]);
-    const[plataformas, setPlataformas] = useState<Plataforma[]>([]);
-    const[classificacoes, setClassificacoes] = useState<ClassificacaoIndicativa[]>([]);
+    const [generos, setGeneros] = useState<Genero[]>([]);
+    const [plataformas, setPlataformas] = useState<Plataforma[]>([]);
+    const [classificacoes, setClassificacoes] = useState<ClassificacaoIndicativa[]>([]);
 
 
     async function listarGeneroEmJogo() {
@@ -55,52 +55,55 @@ const Jogo = () => {
     }
 
     // Cadastro de jogo
-    const[nome, setNome] = useState<string>("");
-    const[preco, setPreco] = useState<string>("");
-    const[descricao, setDescricao] = useState<string>("");
-    const[imagem, setImagem] = useState<File | null>(null);
-    const[generosSelecionados, setGenerosSelecionados] = useState<number[]>([]);
-    const[plataformasSelecionadas, setPlataformasSelecionadas] = useState<number[]>([]);
-    const[classificacaoSelecionada, setClassificacaoSelecionada] = useState<number>();
+    const [nome, setNome] = useState<string>("");
+    const [preco, setPreco] = useState<string>("");
+    const [descricao, setDescricao] = useState<string>("");
+    const [imagem, setImagem] = useState<File | null>(null);
+    const [generosSelecionados, setGenerosSelecionados] = useState<number[]>([]);
+    const [plataformasSelecionadas, setPlataformasSelecionadas] = useState<number[]>([]);
+    const [classificacaoSelecionada, setClassificacaoSelecionada] = useState<number>();
 
-    async function salvarJogo(e: React.FormEvent<HTMLFormElement>){
-        e.preventDefault();
-        try{
-            const dadosJogo = { // O nome desses valores tem que estar igual ao que passamos na inteface criada na hora de cadastrar(nesse caso a interface "JogoFormulario")
-                nome,
-                preco, 
-                descricao,
-                imagem,
-                generosIds: generosSelecionados,
-                plataformasIds: plataformasSelecionadas,
-                classificacaoIndicativaId: classificacaoSelecionada
-            }
+    // async function salvarJogo(e: React.FormEvent<HTMLFormElement>) {
+    //     e.preventDefault();
+    //     try {
+    //         const dadosJogo = { // O nome desses valores tem que estar igual ao que passamos na inteface criada na hora de cadastrar(nesse caso a interface "JogoFormulario")
+    //             nome,
+    //             preco,
+    //             descricao,
+    //             imagem,
+    //             generosIds: generosSelecionados,
+    //             plataformasIds: plataformasSelecionadas,
+    //             classificacaoIndicativaId: classificacaoSelecionada
+    //         }
 
-            await cadastrarJogo(dadosJogo);
-            notificacao("Produto cadastrado!");
-        }
-        catch (error: any){
-            erro(error.message);
-        }
-    }
+    //         await cadastrarJogo(dadosJogo);
+    //         notificacao("Produto cadastrado!");
+    //     }
+    //     catch (error: any) {
+    //         erro(error.message);
+    //     }
+    // }
 
     useEffect(() => {
         listarGeneroEmJogo();
         listarPlataformaEmJogo();
         listarClassificacaoIndicativaEmJogo();
-    }, [])
+    }, []) // O array vazio[], diz que o useEffect só vai executar essas ações uma vez, quando a tela for carregada inicialmente,
+    //isso impede o loop infinito das informações 
 
 
     return (
         <>
             <div className={styles.pagina}>
-                <Header textoLink="Catálogo" textoBotao="Deslogar"/>
+                <Header textoLink="Catálogo" textoBotao="Deslogar" />
                 <main className={styles.main}>
+
+
                     <section className={styles.cadastro}>
                         <div className={`${styles.container_cadastro} layout_guide efeito_vidro_card`}>
                             <div className={styles.titulo}>
                                 <h1>Cadastrar novo jogo</h1>
-                                <hr />
+                                <hr className="linha_titulo" />
                             </div>
                             <form className={styles.formulario} action="" >
 
@@ -119,13 +122,16 @@ const Jogo = () => {
                                         </div>
                                         <div className={styles.campo_form}>
                                             <label htmlFor="genero">Gênero</label>
-                                            {/* <select className="efeito_vidro_input" 
-                                            multiple
-                                            value={generosSelecionados.map(String)}
-                                            onChange={(e) => setGenerosSelecionados(
-                                                // Array.from(e.target.selectedOptions).map(())
-                                            )}>
-                                            </select> */}
+                                            <select className="efeito_vidro_input"
+                                                multiple
+                                                value={generosSelecionados.map(String)} // Vai pegar o id dos gêneros selecionados e transformar em string
+                                                onChange={(e) => setGenerosSelecionados( // Pegar itens selecionados e salvar no state em array
+                                                    Array.from(e.target.selectedOptions).map((option) => Number(option.value))
+                                                )}>
+                                                {generos.map((item) => ( // Traz a lista mapeada dos itens(gêneros)
+                                                    <option value={item.generoID} key={item.generoID}>{item.nome}</option>
+                                                ))}
+                                            </select>
                                         </div>
                                         <div className={styles.campo_form}>
                                             <label htmlFor="classificacao">Classificação Indicativa</label>
@@ -136,7 +142,16 @@ const Jogo = () => {
                                     <div className={styles.campos_baixo}>
                                         <div className={styles.campo_form}>
                                             <label htmlFor="plataforma">Plataforma</label>
-                                            <select className="efeito_vidro_input" name="plataforma" id=""></select>
+                                            <select className="efeito_vidro_input"
+                                                multiple
+                                                value={plataformasSelecionadas.map(String)}
+                                                onChange={(e) => setPlataformasSelecionadas(
+                                                    Array.from(e.target.selectedOptions).map((option) => Number(option.value))
+                                                )}>
+                                                {plataformas.map((item) => (
+                                                    <option value={item.plataformaID} key={item.plataformaID}>{item.nome}</option>
+                                                ))}
+                                            </select>
                                         </div>
                                         <div className={styles.campo_form}>
                                             <label htmlFor="imagem">Imagem</label>
@@ -150,10 +165,17 @@ const Jogo = () => {
                                     <textarea className="efeito_vidro_input" name="descricao" required />
                                 </div>
                             </form>
-                                <Botao className={styles.botao_cadastro}>Cadastrar</Botao>
+                            <Botao className={styles.botao_cadastro}>Cadastrar</Botao>
                         </div>
                     </section>
-                    <ListaProduto />
+
+                    <section className={styles.catalogo}>
+                        <div className={styles.titulo}>
+                            <h1>Lista de jogos</h1>
+                            <hr className="linha_titulo" />
+                        </div>
+                        <ListaProduto />
+                    </section>
                 </main>
                 <Footer />
             </div>

@@ -8,8 +8,10 @@
 
 .main{
     display: grid;
-    gap: 50px;
+    gap: 80px;
 }
+
+/* SEÇÃO CADASTRO */
 
 .cadastro{
     display: flex;
@@ -24,20 +26,18 @@
     padding: 3% 2%;
 }
 
+.titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
 .titulo h1{
     font-family: var(--fonte-titulo);
     font-size: 35px;
     font-weight: 600;
     color: var(--cinza-claro);
-}
-
-.titulo hr{
-   border: none; /* Remover borda padrão */
-
-   height: 1px;
-   background: var(--rosa-destaque);
-   border-radius: 2px;
-   margin-top: 1.5%;
 }
 
 .formulario{
@@ -57,9 +57,9 @@
 .campos_meio{
     display: grid;
     width: 100%;
-    grid-template-columns: 28% 28% 36%;
+    grid-template-columns: 1fr 1fr 1.6fr;
 
-    gap: 4%;
+    gap: 24px;
 }
 
 .campos_baixo{
@@ -98,4 +98,12 @@
 
 .botao_cadastro{
     width: 20%;
+}
+
+/* SEÇÃO CATÁLOGO */
+
+.catalogo{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }

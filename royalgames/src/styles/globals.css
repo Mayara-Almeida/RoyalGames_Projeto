@@ -51,3 +51,12 @@
     font-size: 16px;
     padding-left: 10px;
 }
+
+.linha_titulo{
+    width: 420px;
+    height: 1px;
+
+    border: none; /* Remover borda padrão */
+    border-top: 1px solid var(--rosa-destaque); /* Criando a linha */
+    border-radius: 2px;
+}

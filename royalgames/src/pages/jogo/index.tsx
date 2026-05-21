@@ -61,7 +61,7 @@ const Jogo = () => {
     const [imagem, setImagem] = useState<File | null>(null);
     const [generosSelecionados, setGenerosSelecionados] = useState<number[]>([]);
     const [plataformasSelecionadas, setPlataformasSelecionadas] = useState<number[]>([]);
-    const [classificacaoSelecionada, setClassificacaoSelecionada] = useState<number[]>([]); /* Apesar de poder selecionar só um, ainda é um array, pq da api vem mais de uma opção */
+    const [classificacaoSelecionada, setClassificacaoSelecionada] = useState<number>(0); /* Apesar de poder selecionar só um, ainda é um array, pq da api vem mais de uma opção */
 
     async function salvarJogo(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -142,9 +142,8 @@ const Jogo = () => {
                                         <div className={styles.campo_form}>
                                             <label htmlFor="classificacao">Classificação Indicativa</label>
                                             <select className="efeito_vidro_input" 
-                                                value={classificacaoSelecionada.map(String)}
-                                                onChange={(e) => setClassificacaoSelecionada(
-                                                    Array.from(e.target.selectedOptions).map((option) => Number(option.value))
+                                                value={classificacaoSelecionada}
+                                                onChange={(e) => setClassificacaoSelecionada(Number(e.target.value)
                                                 )}>
                                                 {classificacoes.map((item) => (
                                                     <option value={item.classificacaoIndicativaID} key={item.classificacaoIndicativaID}>{item.classificacao}</option>

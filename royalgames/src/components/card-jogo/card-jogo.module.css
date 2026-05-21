@@ -4,20 +4,61 @@
     flex-direction: column;
     align-items: center;
 
+    height: auto;
     gap: 4%;
-    padding: 2.5% 3.8%;
+    padding: 4.5% 10%; /* primeiro valor: em cima e em baixo; segundo valor: direita e esquerda*/
+}
+
+.card_info{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.imagem_jogo{
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.infos h3{
+    font-family: var(--fonte-titulo);
+    font-size: 21px;
+    font-weight: 550;
+    color: var(--cinza-claro);
+}
+
+.infos p{
+    font-family: var(--fonte-titulo);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--cinza-claro);
 }
 
 .botoes_baixo{
     display: flex;
     width: 100%;
-    gap: 5%;
+    gap: 7%;
 }
 
 .botoes{
     font-family: var(--fonte-titulo);
-    font-size: 18px;
-
+    font-size: 16px;
+    font-weight: 500;
+    
     width: 50%;
     background-color: var(--rosa-destaque);
+}
+
+.botoes:hover{
+    background-color: transparent;
+    border: 2px solid var(--rosa-destaque);
 }

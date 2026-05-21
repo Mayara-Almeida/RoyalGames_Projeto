@@ -1,7 +1,41 @@
+import { listarJogo } from "@/pages/api/jogoService";
 import CardJogo from "../card-jogo/card-jogo";
 import styles from "./lista-produto.module.css"
+import { useEffect, useState } from "react";
+
+interface Jogo{
+    jogoID: number,
+    nome: string,
+    preco: number,
+    imagemUrl: string,
+    statusJogo: boolean
+}
 
 const ListaProduto = () => {
+
+    const[pesquisa, setPesquisa] = useState("");
+
+    const[ordem, setOrdem] = useState("todos");
+
+    const[jogos, setJogos] = useState<Jogo[]>([]);
+
+    async function listar(){
+        try{
+            const lista = await listarJogo();
+
+            setJogos(lista);
+        }
+        catch(error: any){
+            console.log(error.mesage);
+        }
+    }
+
+    useEffect(() => {
+        listar();
+    }, [])
+
+    
+    console.log(jogos);
     return (
         <>
             <main id={styles.main}>
@@ -31,15 +65,18 @@ const ListaProduto = () => {
                         </div>
                     </div>
                     <div className={styles.cards}>
-                        <CardJogo />
-                        <CardJogo />
-                        <CardJogo />
+                        {jogos.map((item) => (
+                            <CardJogo 
+                            key={item.jogoID}
+                            jogoID={item.jogoID}
+                            nome={item.nome}
+                            preco={item.preco}
+                            img={item.imagemUrl}
+                        />
+                        ))}
+                        
                     </div>
-                    <div className={styles.cards}>
-                        <CardJogo />
-                        <CardJogo />
-                        <CardJogo />
-                    </div>
+                   
                 </div>
             </main>
         </>

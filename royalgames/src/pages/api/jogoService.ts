@@ -52,10 +52,12 @@ export async function listarJogo(){
     try{
         const response = await api.get("Jogo");
 
+        // Filtrar somente os jogos ativos
         const jogosAtivos = response.data.filter(
             (jogo: JogoListagem) => jogo.statusJogo === true
         );
 
+        // Acrescenta a url da imagem na lista de produtos acima
         const jogos = jogosAtivos.map((jogo: JogoListagem) => ({
             ...jogo,
             imagemUrl: `${api.defaults.baseURL}${jogo.imagemUrl}`

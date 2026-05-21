@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
 
-    gap: 40px;
+    gap: 5%;
 }
 
 .botoes_catalogo{
@@ -44,13 +44,4 @@
     width: 100%;
     font-size: 20px;
 }
-
-
-
-
-.cards{
-    display: flex;
-}
-
-
 

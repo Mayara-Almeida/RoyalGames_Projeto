@@ -189,7 +189,7 @@ const Jogo = () => {
                         </div>
                     </section>
 
-                    <section className={styles.catalogo}>
+                    <section className={styles.catalogo} id="catalogo">
                         <div className={styles.titulo}>
                             <h1>Lista de jogos</h1>
                             <hr className="linha_titulo" />

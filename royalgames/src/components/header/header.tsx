@@ -14,7 +14,7 @@ const Header = ({textoLink, textoBotao}: PropsHeader) => {
                 <div className={`${styles.container} layout_guide`}>
                     <img src="./imgs/logo.svg" alt="Logo do Royal Games em tom rosa destaque." className={styles.logo} />
                     <nav className={styles.nav_menu}>
-                        <a href="" className={styles.catalogo_nav}>{textoLink}</a>
+                        <a href="#catalogo" className={styles.catalogo_nav}>{textoLink}</a>
                         <Link href="/login">
                             <Botao className={styles.botao_header}>{textoBotao}</Botao>
                         </Link>

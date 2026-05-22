@@ -9,6 +9,8 @@
 .main{
     display: grid;
     gap: 80px;
+
+    min-height: 100vh;
 }
 
 /* SEÇÃO CADASTRO */

@@ -1,6 +1,9 @@
 #main{
     display: flex;
     justify-content: center;
+
+    width: 100%;
+    min-height: 100vh;
 }
 
 .container_listagem{
@@ -9,6 +12,12 @@
     align-items: center;
 
     gap: 5%;
+}
+
+.cards{
+    display: grid; /* Os cards vão ser alinhados em linhas e colunas */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 45px;
 }
 
 .botoes_catalogo{
@@ -44,4 +53,25 @@
     width: 100%;
     font-size: 20px;
 }
+
+.paginacao {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.botao_paginacao{
+    font-size: 20px;
+
+    width: 4%;
+    height: 100%;
+}
+
+.botao_paginacao img{
+   display: flex;
+   justify-self: center;
+}
+
+
 

@@ -3,21 +3,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
-    height: auto;
-    gap: 4%;
-    padding: 4.5% 10%; /* primeiro valor: em cima e em baixo; segundo valor: direita e esquerda*/
+    height: 380px;
+    width: 300px;
+    gap: 3%;
+    padding: 4.5% 10% 8% 10%; /* primeiro valor: em cima e em baixo; segundo valor: direita e esquerda*/
 }
 
 .card_info{
-    height: auto;
+    height: 100%;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     gap: 18px;
 }
 
 .imagem_jogo{
     width: 100%;
+    height: 185px;
     display: block;
     object-fit: cover;
 }
@@ -26,14 +30,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+
+    width: 100%;
     gap: 5px;
 }
 
 .infos h3{
     font-family: var(--fonte-titulo);
-    font-size: 21px;
-    font-weight: 550;
+    font-size: 22px;
+    font-weight: 520;
     color: var(--cinza-claro);
+
+    text-align: center;
+
+    width: 100%;
+
+    word-break: break-word; /* Quebra palavras gigantes */
+
+    display: -webkit-box; /* Transforma o elemento para que ele aceite limite de linhas */
+    -webkit-box-orient: vertical; /* Define a direção da caixa de linhas */
+    -webkit-line-clamp: 2; /* Quantidade de linhas limitada */
+    
+    overflow: hidden; /* Esconde o conteúdo que ultrapassar */
+    text-overflow: ellipsis; /* Adiciona "..." no final do texto cortado*/
 }
 
 .infos p{

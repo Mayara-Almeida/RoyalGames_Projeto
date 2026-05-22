@@ -2,6 +2,7 @@ import { listarJogo } from "@/pages/api/jogoService";
 import CardJogo from "../card-jogo/card-jogo";
 import styles from "./lista-produto.module.css"
 import { useEffect, useState } from "react";
+import Botao from "../botao/botao";
 
 interface Jogo{
     jogoID: number,
@@ -76,7 +77,15 @@ const ListaProduto = () => {
                         ))}
                         
                     </div>
-                   
+                   <div className={styles.paginacao}>
+                        <Botao className={styles.botao_paginacao}><img src="./imgs/seta_esquerda.svg" alt="" /></Botao>
+                        <Botao className={styles.botao_paginacao}>1</Botao>
+                        <Botao className={styles.botao_paginacao}>2</Botao>
+                        <Botao className={styles.botao_paginacao}>3</Botao>
+                        <Botao className={styles.botao_paginacao}>4</Botao>
+                        <Botao className={styles.botao_paginacao}>5</Botao>
+                        <Botao className={styles.botao_paginacao}><img src="./imgs/seta_direita.svg" alt="" /></Botao>
+                   </div>
                 </div>
             </main>
         </>
